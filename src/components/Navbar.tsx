@@ -5,8 +5,6 @@ import styled from "styled-components/macro";
 export default function Navbar(props: any) {
   const historys = useHistory();
 
-  console.log(historys);
-
   return (
     <Wapprer className="navbar">
       <nav>
