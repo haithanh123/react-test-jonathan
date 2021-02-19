@@ -1,26 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components/macro";
 
-export default function Navbar() {
-  const [key, setKey] = useState("home");
+export default function Navbar(props: any) {
+  const historys = useHistory();
 
-  const onSetKey = (key: string) => {
-    setKey(key);
-  };
+  console.log(historys);
+
   return (
     <Wapprer className="navbar">
       <nav>
         <p>DumbOldSpider LLC</p>
-        <Link onClick={() => onSetKey("home")} className={`home ${key === "home" ? "active" : ""}`} to="/">
+        <Link className={`home ${historys?.location?.pathname === "/" ? "active" : ""}`} to="/">
           Home
         </Link>
-        <Link onClick={() => onSetKey("about")} className={`about ${key === "about" ? "active" : ""}`} to="/about">
+        <Link className={`about ${historys?.location?.pathname === "/about" ? "active" : ""}`} to="/about">
           About
         </Link>
         <Link
-          onClick={() => onSetKey("socail-media")}
-          className={`socail-media ${key === "socail-media" ? "active" : ""}`}
+          className={`socail-media ${historys?.location?.pathname === "/socail-media" ? "active" : ""}`}
           to="/socail-media"
         >
           Socail Media (Third Party)
