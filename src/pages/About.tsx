@@ -8,11 +8,18 @@ const DATA = [
   { id: 2, fullname: "Badr Abdallah", position: "Co-founder", role: "Program Manager", img: img },
   { id: 3, fullname: "Yonathan Cedilos", position: "", role: "Software Architect", img: img },
 ];
+interface IUser {
+  id: number;
+  fullname: string;
+  position: string;
+  role: string;
+  img: string;
+}
 
 export default function About() {
   return (
     <Wrapper className="about">
-      {DATA.map((item) => (
+      {DATA.map((item: IUser) => (
         <Card
           key={item.id}
           border
